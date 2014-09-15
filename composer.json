@@ -1,6 +1,7 @@
 {
     "name": "hofimax/sfdc-soap",
     "type": "library",
+    "version": "master",
     "description": "A PHP client for the Salesforce SOAP API",
     "keywords": [ "salesforce", "crm", "soap", "force.com", "web services" ],
     "license": "MIT",
