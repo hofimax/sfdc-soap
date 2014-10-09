@@ -43,6 +43,8 @@ class DescribeSObjectResult
      */
     public function getChildRelationships()
     {
+        if ($this->childRelationships == null) $this->childRelationships = array();
+        
         if (!$this->childRelationships instanceof ArrayCollection) {
             $this->childRelationships = new ArrayCollection($this->childRelationships);
         }
