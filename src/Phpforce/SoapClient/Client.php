@@ -64,6 +64,8 @@ class Client extends AbstractHasDispatcher implements ClientInterface
      */
     protected $loginResult;
 
+    protected $additionalHeaders = array();
+
     /**
      * Construct Salesforce SOAP client
      *
@@ -550,8 +552,11 @@ class Client extends AbstractHasDispatcher implements ClientInterface
     {
         $this->init();
 
-        // Prepare headers
-        $this->soapClient->__setSoapHeaders($this->getSessionHeader());
+        //$this->soapClient->__setSoapHeaders($this->getSessionHeader());
+
+        $headers = array_merge([$this->getSessionHeader()], array_values($this->additionalHeaders));
+
+        $this->soapClient->__setSoapHeaders($headers);
 
         $requestEvent = new Event\RequestEvent($method, $params);
         $this->dispatch(Events::REQUEST, $requestEvent);
