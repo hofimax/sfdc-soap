@@ -8,9 +8,11 @@ class Field
     protected $byteLength;
     protected $calculated;
     protected $caseSensitive;
+    protected $controllerName;
     protected $createable;
     protected $custom;
     protected $defaultedOnCreate;
+    protected $defaultValueFormula;
     protected $dependentPicklist;
     protected $deprecatedAndHidden;
     protected $digits;
@@ -38,7 +40,6 @@ class Field
     protected $unique;
     protected $updateable;
     protected $writeRequiresMasterRead;
-    protected $controllerName;
 
     public function isAutoNumber()
     {
@@ -60,6 +61,11 @@ class Field
         return $this->caseSensitive;
     }
 
+    public function getControllerName()
+    {
+        return $this->controllerName;
+    }
+
     public function isCreateable()
     {
         return $this->createable;
@@ -73,6 +79,11 @@ class Field
     public function isDefaultedOnCreate()
     {
         return $this->defaultedOnCreate;
+    }
+
+    public function getDefaultValueFormula()
+    {
+        return $this->defaultValueFormula;
     }
 
     public function getDependentPicklist()
@@ -238,10 +249,5 @@ class Field
         }
 
         return false;
-    }
-
-    public function getControllerName()
-    {
-        return $this->controllerName;
     }
 }
