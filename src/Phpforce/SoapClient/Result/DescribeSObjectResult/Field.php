@@ -38,6 +38,7 @@ class Field
     protected $unique;
     protected $updateable;
     protected $writeRequiresMasterRead;
+    protected $controllerName;
 
     public function isAutoNumber()
     {
@@ -237,5 +238,10 @@ class Field
         }
 
         return false;
+    }
+
+    public function getControllerName()
+    {
+        return $this->controllerName;
     }
 }
